@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Site</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-1641434457.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container mx-auto px-8">
+                <div class="flex justify-between items-center">
+
+                    <div class="flex items-center space-x-6">
+                        <div class="relative z-10"> <button id="languageButton"
+                                class="flex items-center  space-x-2 text-sm text-gray-700 hover:text-gray-900 focus:outline-none">
+                                <span>English</span> <i class="bi bi-chevron-down"></i> </button>
+                            <ul id="languageDropdown"
+                                class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-md hidden">
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">English</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">اللغة العربية</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Español</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Français</a></li>
+                            </ul>
+                        </div>
+                        <div class="relative"> <button id="currencyButton"
+                                class="flex items-center space-x-2 text-sm text-gray-700 hover:text-gray-900 focus:outline-none">
+                                <span>USD</span> <i class="bi bi-chevron-down"></i> </button>
+                            <ul id="currencyDropdown"
+                                class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-md hidden">
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">€ EUR</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">$ USD</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 invisible sm:visible">
+                        <div class="flex space-x-4">
+                            <a href="#" id="checkoutBtn" class="text-sm text-white px-2 py-2 border bg-bg">
+                                <i class="bi bi-bag-check pr-2 text-white"></i>Checkout
+                            </a>
+                            <a href="#" id="logoutBtn" class="text-sm text-white px-2 py-2 border bg-bg">
+                                <i class="bi bi-person pr-1"></i>Log out
+                            </a>
+                        </div>
+                    </div>
+                  
+                    <div id="logoutModal" class="hidden fixed inset-0 bg-black bg-opacity-50  justify-center items-center z-50">
+                        <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+                            <h3 class="text-lg font-bold text-gray-700">Confirm Logout</h3>
+                            <p class="text-gray-600 mt-2">Are you sure you want to log out?</p>
+                            <div class="mt-4 flex justify-end space-x-4">
+                                <button id="cancelLogoutBtn" class="bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-400">
+                                    Cancel
+                                </button>
+                                <a href=" " class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">
+                                    Log out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </nav>
+        <div class="py-8">
+            <div class="container mx-auto px-8">
+                <div class="flex flex-wrap items-center justify-between">
+                    <div class="w-full lg:w-1/4 mb-4 lg:mb-0 text-center lg:text-left">
+                        <a href="#">
+                            <img src="http://ps.magentech.com/themes/sp_market2/img/logo-1641434457.jpg"
+                                alt="SP Market version 2" class="h-12 mx-auto lg:mx-0">
+                        </a>
+                    </div>
+                    <div class="w-full lg:w-3/4">
+                        <div class="flex flex-wrap items-center justify-between">
+                            <div class="w-full lg:w-3/4 mb-4 lg:mb-0">
+                                <form action="#" method="get" class="flex items-center">
+                                    <div class="relative w-1/3"> <select name="cat_id "
+                                            class="block w-full py-2.5 px-3 border border-secondary bg-white text-gray-700 text-sm focus:outline-none h-12">
+                                            <option value="all">All Categories</option>
+                                            <option value="2">Home</option>
+                                            <option value="3">Clothes</option>
+                                            <option value="4">- Men</option>
+                                            <option value="5">- Women</option>
+                                            <option value="2">- Arts</option>
+                                            <option value="3">- Electronics</option>
+                                            <option value="4">- Home Audio</option>
+                                            <option value="5">- Fashion</option>
+                                        </select> </div> <input type="text" name="s"
+                                        placeholder="Enter keywords here..."
+                                        class="w-full px-4 py-2.5 border-t border-b border-secondary focus:outline-none text-sm h-12">
+                                    <button type="submit"
+                                        class="px-6 py-2.5 bg-secondary text-white text-sm font-medium h-12"> Search
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="w-full lg:w-1/4 text-center lg:text-right">
+                                <div class="inline-flex items-center space-x-3">
+                                    <i class="bi bi-cart py-2 px-3 text-white border bg-bg text-lg"></i>
+                                    <div class="text-left text-md font-bold">
+                                        <span>My Cart</span><br>
+                                        <span class="text-sm font-normal text-bg">0 items - $0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-center bg-secondary shadow">
+            <div class="container mx-auto">
+                <div class="header-center flex justify-between items-center">
+                    <button id="mobileMenuToggle"
+                        class="md:hidden text-white text-2xl ml-6 p-2 rounded focus:outline-none">
+                        <i class="bi bi-list"></i>
+
+                    </button>
+                    <nav class="hidden md:flex flex-row text-white font-semibold">
+                        <a href="/blog"
+                            class="hover:bg-white hover:border-t-2 pt-4 pb-4 px-6 border-bg hover:text-bg">Home</a>
+                        <a href="/new-products"
+                            class="hover:bg-white border-t-2 border-secondary pt-4 pb-4 px-6 hover:border-bg hover:text-bg">New
+                            Arrivals</a>
+                        <a href="/promotions"
+                            class="hover:bg-white hover:border-t-2 pt-4 pb-4 px-6 border-bg hover:text-bg">Promotions</a>
+                        <a href="/contact-us"
+                            class="hover:bg-white hover:border-t-2 pt-4 pb-4 px-6 border-bg hover:text-bg">Contact
+                            Us</a>
+                        <a href="/about-us"
+                            class="hover:bg-white hover:border-t-2 pt-4 pb-4 px-6 border-bg hover:text-bg">About Us</a>
+                        <a href="/blog"
+                            class="hover:bg-white hover:border-t-2 pt-4 pb-4 px-6 border-bg hover:text-bg">Blog</a>
+                    </nav>
+                    <nav id="mobileMenu"
+                        class="absolute top-0 h-[100vh]  left-0 w-3/5 bg-secondary text-white hidden flex-col space-y-4 p-4 shadow-lg z-50">
+                        <button id="closeMenu" class=" px-4 text-2xl text-bg  rounded-md hover:text-red-600">
+                            <i class="bi bi-x "></i>
+                        </button>
+                        <a href="/blog" class="block hover:bg-gray-700 py-2 px-4 rounded">Home</a>
+                        <a href="/new-products" class="block hover:bg-gray-700 py-2 px-4 rounded">New Arrivals</a>
+                        <a href="/promotions" class="block hover:bg-gray-700 py-2 px-4 rounded">Promotions</a>
+                        <a href="/contact-us" class="block hover:bg-gray-700 py-2 px-4 rounded">Contact Us</a>
+                        <a href="/about-us" class="block hover:bg-gray-700 py-2 px-4 rounded">About Us</a>
+                        <a href="/blog" class="block hover:bg-gray-700 py-2 px-4 rounded">Blog</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row space-x-0 lg:space-x-8 mb-12">
+            <div class="w-full lg:w-1/4 bg-gray-100 p-4 rounded-lg ml-12 mx-auto hidden lg:block">
+                <nav class="flex flex-col space-y-2"> <a href="#" class="text-lg text-gray-800 hover:text-bg ">Tattoo
+                        Kits</a> <a href="#" class="text-lg text-gray-800 hover:text-bg">Electronic Cigarettes</a> <a
+                        href="#" class="text-lg text-gray-800 hover:text-bg">Sexy Lingerie</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Eye Makeup</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">iPad Mini Cases</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Phone 5 Cases</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Tattoo Supplies</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">RC Helicopters</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Tattoo Kits</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Electronic Cigarettes</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Sexy Lingerie</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Eye Makeup</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">iPad Mini Cases</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Sexy Lingerie</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">Eye Makeup</a> <a href="#"
+                        class="text-lg text-gray-800 hover:text-bg">iPad Mini Cases</a> </nav>
+            </div>
+            <div class="w-full lg:w-3/4 space-y-8">
+                <ul class="space-x-2 flex text-sm text-gray-600 py-2  "> <span
+                        class="text-black font-bold hidden lg:block">Top Search:
+                    </span>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">Tattoo Kits</a></li>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">Electronic Cigarettes</a></li>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">Sexy Lingerie</a></li>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">Eye Makeup</a></li>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">iPad Mini Cases</a></li>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">Phone 5 Cases</a></li>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">Tattoo Supplies</a></li>
+                    <li><a href="#" class="hover:text-bg hidden lg:block">RC Helicopters</a></li>
+                </ul>
+                <div class="flex flex-col lg:flex-row mr-0 lg:mr-16">
+                    <div class="box-slider swiper w-4/5  md:w-[600px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> <img
+                                    src="http://ps.magentech.com/themes/sp_market2/modules/sphomeslider/images/sample-5.jpg"
+                                    alt="Sample 5"> </div>
+                            <div class="swiper-slide"> <img
+                                    src="http://ps.magentech.com/themes/sp_market2/modules/sphomeslider/images/sample-6.jpg"
+                                    alt="Sample 6"> </div>
+                            <div class="swiper-slide"> <img
+                                    src="http://ps.magentech.com/themes/sp_market2/modules/sphomeslider/images/sample-4.jpg"
+                                    alt="Sample 4"> </div>
+                        </div>
+                        <div class="swiper-button-next text-black"></div>
+                        <div class="swiper-button-prev text-black "></div>
+                    </div>
+                    <div
+                        class="box-banner flex flex-col items-center md:flex-row lg:flex-col justify-center lg:ml-4 mt-4 lg:mt-0 ">
+                        <div class=" effect-1"> <a href="#" title=""> <img
+                                    src="http://ps.magentech.com/themes/sp_market2/modules/spbanner/images/img1_home1.jpg"
+                                    alt="Banner 1"> </a> </div>
+                        <div class="effect-1 spbanner "> <a href="#" title=""> <img
+                                    src="http://ps.magentech.com/themes/sp_market2/modules/spbanner/images/img2_home1.jpg"
+                                    alt="Banner 2"> </a> </div>
+                        <div class="effect-1 spbanner"> <a href="#" title=""> <img
+                                    src="http://ps.magentech.com/themes/sp_market2/modules/spbanner/images/img3_home1.jpg"
+                                    alt="Banner 3"> </a> </div>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col  md:flex-row justify-around space-y-8 lg:space-y-0 lg:space-x-8 border mx-0 lg:ml-2 lg:mr-16 py-6 px-8">
+                    <div class="policy flex items-center space-x-2 group"> <a href="#" title="90 days money back"
+                            class="flex items-center space-x-2"> <i
+                                class="bi bi-truck text-5xl text-gray-700 pr-4 group-hover:text-bg"></i> <span
+                                class="text-md text-gray-700 group-hover:text-bg">FREE SHIPPING<br>ON ALL ORDERS</span>
+                        </a> </div>
+                    <div class="policy flex items-center space-x-2 group"> <a href="#"
+                            title="free shipping on all orders" class="flex items-center space-x-2"> <i
+                                class="bi bi-arrow-repeat text-5xl text-gray-700 pr-4 group-hover:text-bg"></i> <span
+                                class="text-md text-gray-700 group-hover:text-bg">Money Back<br>Guarantee</span> </a>
+                    </div>
+                    <div class="policy flex items-center space-x-2 group"> <a href="#" title="lowest price guarantee"
+                            class="flex items-center space-x-2"> <i
+                                class="bi bi-shield-lock text-5xl text-gray-700 pr-4 group-hover:text-bg"></i> <span
+                                class="text-md text-gray-700 group-hover:text-bg">SAFE SHOPPING<br>GUARANTEE</span> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <section>
+
+        <nav class="bg-white shadow mb-6">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex items-center space-x-2 text-sm">
+                    <a href="#" class="text-bg hover:underline">Home</a>
+                    <span class="text-gray-700">/</span>
+                    <span class="text-gray-700">Products</span>
+                </div>
+            </div>
+        </nav>
+        <div class="container mx-auto px-4">
+            <div class="flex space-x-4 border-b">
+                <button class="tab-button text-gray-700 border-b-2 border-bg "
+                    data-target="electronics-section">Electronics</button>
+                <button class="tab-button text-gray-500 hover:text-gray-700" data-target="jewelry-section">Jewelry &
+                    Watches</button>
+                <button class="tab-button text-gray-500 hover:text-gray-700"
+                    data-target="smartphones-section">Smartphones & Tablets</button>
+            </div>
+            <div id="electronics-section" class="tab-content swiper mySwiper2 my-6">
+                <div class="swiper-wrapper">
+                    <div class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-xl pt-6">
+                        <div class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/54-home_default/washing-machines-elextrolux.jpg"
+                            alt="Washing Machines Elextrolux" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Washing Machines Elextrolux</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg mt-2">$185.00</div>
+                            <button id="addToCartBtn"
+                                class="mt-4 w-3/5 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white transition">
+                                <i class="bi bi-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                   
+                    
+                    
+                    <div
+                        class="swiper-slide relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/59-home_default/acer-aspire-s24-all-in-one-pc.jpg"
+                            alt="Acer Aspire S24 All In One PC" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Acer Aspire S24 All In One PC</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg mt-2">$400.00</div>
+                            <button
+                                class="mt-4 w-3/5 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition">
+                                <i class="bi bi-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class=" swiper-slide relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/64-home_default/acer-all-in-one-computers.jpg"
+                            alt="Acer All-in-One Computers" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Acer All-in-One Computers</h2>
+                            <div> <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500
+                        "></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$380.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="swiper-slide relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/30-home_default/heston-boiler-espresso-machine.jpg"
+                            alt="Heston Boiler Espresso Machine" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Heston Boiler Espresso </h2>
+                            <div> <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300
+                        "></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$355.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/34-home_default/philips-hr1861-whole-fruit-juicer.jpg"
+                            alt="Philips HR1861 Whole Fruit Juicer" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Philips Whole Fruit Juicer</h2>
+                            <div> <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500
+                        "></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$170.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <img src="http://ps.magentech.com/themes/sp_market2/37-home_default/samsung-vacuum-cleaner-power.jpg"
+                            alt="Samsung Vacuum Cleaner Power" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Samsung Vacuum Cleaner</h2>
+                            <div> <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300
+                        "></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$500.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                    class="swiper-slide relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                    <div
+                        class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                        New Product
+                    </div>
+                    <img src="http://ps.magentech.com/themes/sp_market2/30-home_default/heston-boiler-espresso-machine.jpg"
+                        alt="Heston Boiler Espresso Machine" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col justify-center items-center">
+                        <h2 class="text-lg text-gray-700">Heston Boiler Espresso </h2>
+                        <div> <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            <i class="bi bi-star-fill text-sm text-gray-300
+                    "></i>
+                            <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                        </div>
+                        <div class="text-bg  mt-2">$355.00</div>
+                        <button
+                            class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                class="bi bi-cart mr-2"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                    <div class="swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <img src="http://ps.magentech.com/themes/sp_market2/41-home_default/beat-crossfade-2-wireless-headphone.jpg"
+                            alt="Beat Crossfade 2 Wireless Headphone" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Beat Wireless Headphone</h2>
+                            <div> <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500
+                        "></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$235.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <img src="http://ps.magentech.com/themes/sp_market2/50-home_default/apple-imac-2017-215-inch-retina-4k.jpg"
+                            alt="Apple iMac 2017 21.5-inch Retina 4K" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Apple iMac 2017 Retina 4K</h2>
+                            <div> <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300
+                        "></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$580.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="jewelry-section" class="tab-content hidden swiper mySwiper2 my-6">
+                <div class="swiper-wrapper">
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/129-home_default/star-wars-jedi-order-class-ring.jpg"
+                            alt="Star Wars Jedi Order Class Ring" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Star Wars Jedi Order Class Ring</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$137.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/133-home_default/white-gold-design-ring.jpg"
+                            alt="White Gold Design Ring" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">White Gold Design Ring</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$333.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/137-home_default/white-gold-women-s-jewelry.jpg"
+                            alt="White Gold Women's Jewelry" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">White Gold Women's Jewelry</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$184.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/105-home_default/bulova-twirl-white-dial-ladies.jpg"
+                            alt="Bulova Twirl White Dial Ladies" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Bulova Twirl White Dial Ladies</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$600.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/133-home_default/white-gold-design-ring.jpg"
+                            alt="White Gold Design Ring" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">White Gold Design Ring</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$333.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                    class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                    <div
+                        class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                        New Product
+                    </div>
+                    <img src="http://ps.magentech.com/themes/sp_market2/105-home_default/bulova-twirl-white-dial-ladies.jpg"
+                        alt="Bulova Twirl White Dial Ladies" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col justify-center items-center">
+                        <h2 class="text-lg text-gray-700">Bulova Twirl White Dial Ladies</h2>
+                        <div>
+                            <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                            <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                        </div>
+                        <div class="text-bg  mt-2">$600.00</div>
+                        <button
+                            class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                class="bi bi-cart mr-2"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div id="smartphones-section" class="tab-content hidden swiper mySwiper2 my-6">
+                <div class="swiper-wrapper">
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/95-home_default/google-pixel-android-81-opm.jpg"
+                            alt="Google Pixel Android 8.1 OPM" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Google Pixel Android 8.1 OPM</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$136.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/96-home_default/samsung-galaxy-note-8-edge-64gb.jpg"
+                            alt="Samsung Galaxy Note 8 Edge" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Samsung Galaxy Note 8 Edge</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$313.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/100-home_default/samsung-galaxy-s8-plus-gray.jpg"
+                            alt="Samsung Galaxy S8 Plus Gray" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Samsung Galaxy S8 Plus Gray</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$168.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/100-home_default/samsung-galaxy-s8-plus-gray.jpg"
+                            alt="Samsung Galaxy S8 Plus Gray" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Samsung Galaxy S8 Plus Gray</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$168.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="relative swiper-slide border rounded-lg overflow-hidden shadow hover:shadow-lg transition pt-6">
+                        <div
+                            class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">
+                            New Product
+                        </div>
+                        <img src="http://ps.magentech.com/themes/sp_market2/100-home_default/samsung-galaxy-s8-plus-gray.jpg"
+                            alt="Samsung Galaxy S8 Plus Gray" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col justify-center items-center">
+                            <h2 class="text-lg text-gray-700">Samsung Galaxy S8 Plus Gray</h2>
+                            <div>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-yellow-500"></i>
+                                <i class="bi bi-star-fill text-sm text-gray-300"></i>
+                            </div>
+                            <div class="text-bg  mt-2">$168.00</div>
+                            <button
+                                class="mt-4 w-3/5  bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-bg hover:text-white  transition"><i
+                                    class="bi bi-cart mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="">
+        <div class="homeOneFourBanners mx-auto max-w-screen-xl px-4">
+            <div class="flex flex-wrap justify-end">
+                <div class="banners-left flex justify-center w-full sm:w-1/3 mb-4">
+                    <div class="effect-1 spbanner">
+                        <a href="#" title="">
+                            <img class="w-full h-auto"
+                                src="http://ps.magentech.com/themes/sp_market2/modules/spbanner/images/img1_home2.jpg"
+                                alt="Banner Index 1 - 4.1" title="">
+                        </a>
+                    </div>
+                </div>
+                <div class=" w-full flex flex-col items-center align-center justify-center px-2 sm:w-1/3   lg:space-y-4 ">
+                    <div class=" effect-1">
+                        <a href="#" title="">
+                            <img class="w-full h-auto"
+                                src="http://ps.magentech.com/themes/sp_market2/modules/spbanner/images/img2_home2.jpg"
+                                alt="Banner Index 1 - 4.2" title="">
+                        </a>
+                    </div>
+                    <div class="effect-1 spbanner">
+                        <a href="#" title="">
+                            <img class="w-full h-auto"
+                                src="http://ps.magentech.com/themes/sp_market2/modules/spbanner/images/img3_home2.jpg"
+                                alt="Banner Index 1 - 4.3" title="">
+                        </a>
+                    </div>
+                </div>
+                <div class="banners-right flex justify-center w-full sm:w-1/3 mb-4">
+                    <div class="effect-1 spbanner">
+                        <a href="#" title="">
+                            <img class="w-full h-auto"
+                                src="http://ps.magentech.com/themes/sp_market2/modules/spbanner/images/img4_home2.jpg"
+                                alt="Banner Index 1 - 4.4" title="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ps-spotlight4 pc-devices my-8 ">
+            <div>
+                <div class="collection max-w-screen-xl mx-auto px-4  ">
+
+                    <div class="title-collections module-title text-center  text-xl font-bold mb-4">
+                        <span>COLLECTIONS</span>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div
+                            class="swiper-wrapper flex flex-col md:flex-row items-center justify-center w-4/5 md:w-full border bg-gray-100 ">
+                            <div
+                                class="swiper-slide flex flex-col items-center border border-gray-100  text-center  hover:border-bg group py-8 w-2/6 md:w-1/6">
+                                <a href="#" title="Collection Image">
+                                    <img class="w-20 h-20 mb-2" src="images/item-1.png" alt="Furniture">
+                                    <span class="text-md font-medium group-hover:text-bg">Furniture</span>
+                                </a>
+                            </div>
+                            <div
+                                class="swiper-slide flex flex-col items-center  text-center hover:border hover:border-bg group py-8 w-2/6 md:w-1/6">
+                                <a href="#" title="Collection Image">
+                                    <img class="w-20 h-20 mb-2" src="images/item-2.png" alt="Gift Idea">
+                                    <span class="text-md font-medium group-hover:text-bg">Gift Idea</span>
+                                </a>
+                            </div>
+                            <div
+                                class="swiper-slide flex flex-col items-center text-center hover:border hover:border-bg group py-8 w-2/6 md:w-1/6">
+                                <a href="#" title="Collection Image">
+                                    <img class="w-20 h-20 mb-2" src="images/item-3.png" alt="Cool Gadgets">
+                                    <span class="text-md font-medium group-hover:text-bg">Cool Gadgets</span>
+                                </a>
+                            </div>
+                            <div
+                                class="swiper-slide flex flex-col items-center text-center hover:border hover:border-bg group py-8 w-2/6 md:w-1/6">
+                                <a href="#" title="Collection Image ">
+                                    <img class="w-20 h-20 mb-2" src="images/item-4.png" alt="Outdoor">
+                                    <span class="text-md font-medium group-hover:text-bg">Outdoor</span>
+                                </a>
+                            </div>
+                            <div
+                                class="swiper-slide flex flex-col items-center text-center hover:border hover:border-bg group py-8 w-2/6 md:w-1/6">
+                                <a href="#" title="Collection Image group-hover:text-bg">
+                                    <img class="w-20 h-20 mb-2" src="images/item-5.png" alt="Jewelry">
+                                    <span class="text-md font-medium group-hover:text-bg">Jewelry</span>
+                                </a>
+                            </div>
+                            <div
+                                class="swiper-slide flex flex-col items-center text-center hover:border hover:border-bg group py-8 w-2/6 md:w-1/6">
+                                <a href="#" title="Collection Image ">
+                                    <img class="w-20 h-20 mb-2" src="images/item-6.png" alt="Men's Fashion">
+                                    <span class="text-md font-medium group-hover:text-bg">Men's Fashion</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="my-8 px-12">
+            <div class="text-lg text-center font-medium mb-4">
+                <span>Hot Categories</span>
+            </div>
+
+            <div id="sp_categories" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="">
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/16-automotive-motorcycle"
+                                title="Automotive  Motorcycle" class="block hover:opacity-80">
+                                <img src="http://ps.magentech.com/themes/sp_market2/img/c/16.jpg"
+                                    alt="Automotive  Motorcycle" class="w-full rounded-md">
+                            </a>
+                        </div>
+                        <div class=" text-lg font-semibold mb-2">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/16-automotive-motorcycle"
+                                title="Automotive  Motorcycle" class="text-gray-800 hover:text-bg">
+                                Automotive Motorcycle
+                            </a>
+                        </div>
+                        <div class="space-y-1">
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/47-car-accessories"
+                                    class="text-gray-600 text-sm hover:text-bg">Car Accessories</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/46-car-lights"
+                                    class="text-gray-600 text-sm hover:text-bg">Car Lights</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/45-motorcycle"
+                                    class="text-gray-600 text-sm hover:text-bg">Motorcycle</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/48-motorcycle-gadgets"
+                                    class="text-gray-600 text-sm hover:text-bg">Motorcycle Gadgets</a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="">
+                    <div class="p-4">
+                        <div class="mb-4 ">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/10-electronics"
+                                class="block hover:opacity-80">
+                                <img src="http://ps.magentech.com/themes/sp_market2/img/c/10.jpg" alt="Electronics"
+                                    class="w-full rounded-md">
+                            </a>
+                        </div>
+                        <div class=" text-lg font-semibold mb-2">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/10-electronics"
+                                class="text-gray-800 hover:text-bg">Electronics</a>
+                        </div>
+                        <div class="space-y-1">
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/76-batteries-chargers"
+                                    class="text-gray-600 text-sm hover:text-bg">Batteries &amp; Chargers</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/77-headphones-headsets"
+                                    class="text-gray-600 text-sm hover:text-bg">Headphones, Headsets</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/78-home-audio"
+                                    class="text-gray-600 text-sm hover:text-bg">Home Audio</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/79-mp3-players-accessories"
+                                    class="text-gray-600 text-sm hover:text-bg">MP3 Players &amp; Accessories</a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="">
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/12-health-beauty"
+                                class="block hover:opacity-80">
+                                <img src="http://ps.magentech.com/themes/sp_market2/img/c/12.jpg"
+                                    alt="Health &amp; Beauty" class="w-full rounded-md">
+                            </a>
+                        </div>
+                        <div class=" text-lg font-semibold mb-2">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/12-health-beauty"
+                                class="text-gray-800 hover:text-bg">Health &amp; Beauty</a>
+                        </div>
+                        <div class="space-y-1">
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/80-bath-body"
+                                    class="text-gray-600 text-sm hover:text-bg">Bath &amp; Body</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/82-fragrances"
+                                    class="text-gray-600 text-sm hover:text-bg">Fragrances</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/83-salon-spa-equipment"
+                                    class="text-gray-600 text-sm hover:text-bg">Salon &amp; Spa Equipment</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/81-shaving-hair-removal"
+                                    class="text-gray-600 text-sm hover:text-bg">Shaving &amp; Hair Removal</a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="">
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/22-holiday-supplies-gifts"
+                                class="block hover:opacity-80">
+                                <img src="http://ps.magentech.com/themes/sp_market2/img/c/22.jpg"
+                                    alt="Holiday Supplies &amp; Gifts" class="w-full rounded-md">
+                            </a>
+                        </div>
+                        <div class=" text-lg font-semibold mb-2">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/22-holiday-supplies-gifts"
+                                class="text-gray-800 hover:text-bg">Holiday Supplies &amp; Gifts</a>
+                        </div>
+                        <div class="space-y-1">
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/84-gift-lifestyle-gadgets"
+                                    class="text-gray-600 text-sm hover:text-bg">Gift &amp; Lifestyle Gadgets</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/85-gift-for-man"
+                                    class="text-gray-600 text-sm hover:text-bg">Gift for Man</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/86-gift-for-woman"
+                                    class="text-gray-600 text-sm hover:text-bg">Gift for Woman</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/87-lighter-cigar-supplies"
+                                    class="text-gray-600 text-sm hover:text-bg">Lighter &amp; Cigar Supplies</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/12-health-beauty"
+                                class="block hover:opacity-80">
+                                <img src="images/13.png" alt="Health &amp; Beauty" class="w-full rounded-md">
+                            </a>
+                        </div>
+                        <div class=" text-lg font-semibold mb-2">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/12-health-beauty"
+                                class="text-gray-800 hover:text-bg">Toys &amp; Hobbies</a>
+                        </div>
+                        <div class="space-y-1">
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/80-bath-body"
+                                    class="text-gray-600 text-sm hover:text-bg">Bath &amp; Body</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/82-fragrances"
+                                    class="text-gray-600 text-sm hover:text-bg">Fragrances</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/83-salon-spa-equipment"
+                                    class="text-gray-600 text-sm hover:text-bg">Salon &amp; Spa Equipment</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/81-shaving-hair-removal"
+                                    class="text-gray-600 text-sm hover:text-bg">Shaving &amp; Hair Removal</a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="">
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/18-jewelry-watches"
+                                class="block hover:opacity-80">
+                                <img src="http://ps.magentech.com/themes/sp_market2/img/c/18.jpg"
+                                    alt="Jewelry &amp; Watches" class="w-full rounded-md">
+                            </a>
+                        </div>
+                        <div class=" text-lg font-semibold mb-2">
+                            <a href="http://ps.magentech.com/themes/sp_market2/en/18-jewelry-watches"
+                                class="text-gray-800  hover:text-bg">Jewelry &amp; Watches</a>
+                        </div>
+                        <div class="space-y-1">
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/90-earrings"
+                                    class="text-gray-600 text-sm hover:text-bg">Earrings</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/88-men-watches"
+                                    class="text-gray-600 text-sm hover:text-bg">Men Watches</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/91-necklaces"
+                                    class="text-gray-600 text-sm hover:text-bg">Necklaces</a></div>
+                            <div><a href="http://ps.magentech.com/themes/sp_market2/en/89-wedding-rings"
+                                    class="text-gray-600 text-sm hover:text-bg">Wedding Rings</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container  text-gray-200">
+            <div class="footer-top py-6 border-b border-gray-700 bg-secondary ">
+                <div class="container mx-auto px-8">
+                    <div class="flex flex-wrap items-center">
+                        <div class="w-full lg:w-1/3 mb-4 lg:mb-0 ">
+                            <div class="flex space-x-4">
+                                <a href="http://www.facebook.com/MagenTech"
+                                    class="text-white hover:bg-bg hover:border-bg px-2 py-1 border"
+                                    aria-label="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="https://twitter.com/magentech"
+                                    class="text-white hover:bg-bg hover:border-bg px-2 py-1 border"
+                                    aria-label="Twitter">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="https://plus.google.com/u/0/+Smartaddons"
+                                    class="text-white hover:bg-bg hover:border-bg px-2 py-1 border"
+                                    aria-label="Google Plus">
+                                    <i class="bi bi-google"></i>
+                                </a>
+                                <a href="#" class="text-white hover:bg-bg hover:border-bg px-2 py-1 border"
+                                    aria-label="Instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                                <a href="#" class="text-white hover:bg-bg hover:border-bg px-2 py-1 border"
+                                    aria-label="Skype">
+                                    <i class="bi bi-skype"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-2/3">
+                            <div class="flex items-center ">
+
+                                <form action="#" method="post" class="flex justify-end items-center flex-1">
+                                    <span class="text-lg text-white font-bold mr-6">Sign up for Newsletter</span>
+                                    <input type="email" name="email"
+                                        class="w-2/5 p-2 bg-white border  placeholder-gray-700 text-gray-200 focus:outline-none"
+                                        placeholder="Enter your email" />
+                                    <button type="submit" class="bg-bg px-4 py-2.5 text-white ">
+                                        Subscribe
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content py-8 text-gray-700 bg-gray-200">
+                <div class="container mx-auto px-4">
+                    <div class="flex">
+                        <div class="">
+                            <div class="grid grid-cols-1 sm:grid-cols-5 ml-6">
+                                <div class="w-full col-span-2 lg:w-1/2 mb-6 lg:mb-0">
+                                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex ">
+                                            <i class="bi bi-geo-alt-fill mr-2 text-secondary"></i>
+                                            <div>
+                                                <strong>Address:</strong>
+                                                <span>No 40 Baria Street 133/2 New York City, NY, United States</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="bi bi-envelope mr-2 text-secondary"></i>
+                                            <div>
+                                                <strong>Email:</strong>
+                                                <a href="#"
+                                                    class="text-blue-500 hover:text-blue-400">contact@market.com</a>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="bi bi-telephone-fill mr-2 text-secondary"></i>
+                                            <div>
+                                                <strong>Phone:</strong>
+                                                <span>0123456789</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-4">Information</h4>
+                                    <ul class="space-y-2">
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">About Us</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">My Account</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Privacy Policies</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Terms & Conditions</a>
+                                        </li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Delivery Information</a>
+                                        </li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Customer Feedback</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-4">Customer Service</h4>
+                                    <ul class="space-y-2">
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Special Offers</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Gift Cards</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">F21 Red</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Privacy Policy</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Terms of Use</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Track Your Order</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-4">Payment & Shipping</h4>
+                                    <ul class="space-y-2">
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Contact Us</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">About Us</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Shipping Guide</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Estimated Delivery
+                                                Time</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Payment Methods</a></li>
+                                        <li><a href="#" class="text-gray-700 hover:text-bg">Return Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-categories py-6  bg-white hidden sm:block">
+                <div class="container mx-auto px-8">
+                    <h4 class="text-lg font-bold text-gray-900 mb-6">Top Categories</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                Apparel:
+                            </div>
+                            <div class="flex flex-wrap space-x-2">
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">T-Shirts</a>
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Hoodies</a>
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Sweaters</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Shorts</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Tracksuits</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Dresses</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Skirts</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Blazers</a> <a
+                                    href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Coats</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Socks</a>
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Underwear</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Swimwear</a>
+                                <a href="#" class="text-gray-500 hover:text-bg ">Jackets</a>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                Footwear:
+                            </div>
+                            <div class="flex flex-wrap space-x-2">
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Sneakers</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Boots</a>
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Flip-Flops</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Loafers</a> <a
+                                    href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Formal
+                                    Shoes</a> <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Casual Shoes</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Sports
+                                    Shoes</a> <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Slippers</a> <a
+                                    href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Heels</a>
+                                <a href="#" class="text-gray-500 hover:text-bg">Sandals</a>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                Accessories:
+                            </div>
+                            <div class="flex flex-wrap space-x-2">
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Bags</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Belts</a>
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Wallets</a> <a
+                                    href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Ties</a>
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Cufflinks</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Keychains</a> <a
+                                    href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Hair
+                                    Accessories</a> <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Cosmetics</a>
+                                <a href="#" class="text-gray-500 hover:text-bg">Hats</a>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                Jewelry:
+                            </div>
+                            <div class="flex flex-wrap space-x-4">
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Necklaces</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Rings</a>
+                                <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Cufflinks</a> <a
+                                    href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Jewelry
+                                    Sets</a> <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Pendants</a> <a
+                                    href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Chokers</a> <a
+                                    href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Body
+                                    Jewelry</a> <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Hair Jewelry</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Toe
+                                    Rings</a> <a href="#"
+                                    class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Nose Rings</a>
+                                <a href="#" class="text-gray-500 hover:text-bg">Bracelets</a>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                Mobiles:
+                            </div>
+                            <div class="flex flex-wrap space-x-2">
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Moto E</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Samsung
+                                    Mobile</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Micromax
+                                    Mobile</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Nokia
+                                    Mobile</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">HTC
+                                    Mobile</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Sony
+                                    Mobile</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Apple
+                                    Mobile</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">LG
+                                    Mobile</a>
+                                <a href="#" class="text-gray-500 hover:text-bg">Karbonn Mobile</a>
+
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                Cameras:
+                            </div>
+                            <div class="flex flex-wrap space-x-2">
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2 ">Nikon
+                                    Camera</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Canon
+                                    Camera</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Sony
+                                    Camera</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Samsung
+                                    Camera</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Point
+                                    Shoot Camera</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Camera
+                                    Lens</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Camera
+                                    Tripod</a>
+                                <a href="#" class="text-gray-500 hover:text-bg">Camera Bag</a>
+
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                Laptops:
+                            </div>
+                            <div class="flex flex-wrap space-x-2">
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Apple
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Acer
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Samsung
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Lenovo
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Sony
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Dell
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Asus
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Toshiba
+                                    Laptop</a>
+                                <a href="#" class="text-gray-500 hover:text-bg">HP Laptop</a>
+
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="text-gray-700 font-semibold mr-4">
+                                TVs:
+                            </div>
+                            <div class="flex flex-wrap space-x-2">
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Sony
+                                    TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Samsung
+                                    TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">LG TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Panasonic
+                                    TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Onida
+                                    TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Toshiba
+                                    TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">Micromax
+                                    TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">LED TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">LCD TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg border-r border-gray-500 pr-2">3D TV</a>
+                                <a href="#" class="text-gray-500 hover:text-bg  pr-2">Smart
+                                    TV</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer-bottom bg-gray-800 text-white py-4">
+                <div class="container mx-auto">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="block-left mb-4 md:mb-0 mx-4">
+                            <div class="copyright text-center md:text-left">© 2020 Prestashop Themes Demo Store. All
+                                Rights Reserved.</div>
+                        </div>
+                        <div class="block-right">
+                            <div class="payment">
+                                <div class="footer-payment text-center md:text-right cursor-pointer mx-4"> <img
+                                        src="images/payments-1-1-1.png" alt="payment logos" class="inline-block"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </footer>
+    <div id="scrollToTop"
+        class="fixed bottom-5 right-5 w-10 h-10 bg-bg text-white flex items-center justify-center rounded-full shadow-lg cursor-pointer transition-opacity duration-300 transform translate-y-0 z-50 opacity-0 invisible">
+        <i class="bi bi-arrow-up"></i>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            speed: 800,
+        });
+
+    </script>
+    <script>
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopButton.classList.add('opacity-100', 'visible', 'translate-y-0');
+                scrollToTopButton.classList.remove('opacity-0', 'invisible');
+            } else {
+                scrollToTopButton.classList.add('opacity-0', 'invisible');
+                scrollToTopButton.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    <script>
+        const swiper2 = new Swiper('.mySwiper2', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+
+            speed: 800,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: {
+                480: {
+                    slidesPerView: 1,
+                    
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    </script>
+    <script>
+
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+
+
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('border-b-2', 'border-bg', 'text-gray-700');
+                    btn.classList.add('text-gray-500');
+                });
+
+
+                document.getElementById(target).classList.remove('hidden');
+                button.classList.add('border-b-2', 'border-bg', 'text-gray-700');
+                button.classList.remove('text-gray-500');
+            });
+        });
+    </script>
+    <script>
+
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+
+        document.addEventListener('click', (event) => {
+
+            if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+    </script>
+   <script>
+    const logoutBtn = document.getElementById('logoutBtn');
+    const logoutModal = document.getElementById('logoutModal');
+    const cancelLogoutBtn = document.getElementById('cancelLogoutBtn');
+    logoutBtn.addEventListener('click', (event) => {
+        logoutModal.classList.remove('hidden');
+        logoutModal.classList.add('flex');
+    });
+    cancelLogoutBtn.addEventListener('click', (event) => {
+        logoutModal.classList.add('hidden');
+    });
+    logoutModal.addEventListener('click', (event) => {
+        if (event.target === logoutModal) {
+            logoutModal.classList.add('hidden');
+        }
+    });
+</script>
+</body>
+</html>

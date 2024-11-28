@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .effect-1 a {
+    @apply relative inline-block overflow-hidden;
+  }
+  .effect-1 a:before {
+    @apply absolute top-0 left-[-150%] w-[50%] h-full block;
+    content: "";
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+    transform: skewX(-40deg);
+    transition: all 1s ease 0s;
+    z-index: 9;
+  }
+  .effect-1 a:hover:before {
+    left: 150%;
+  }
+}
